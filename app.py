@@ -12,13 +12,11 @@ except Exception as e:
     print(f"Gagal memuat CSV: {e}")
 
 def modus_ponens_logic(gender, umur, tinggi):
-    # """
-    # Aturan: Jika (Gender & Umur & Tinggi) cocok, maka Status Gizi didapatkan.
-    # """
+  
     gender_map = {'male': 'laki-laki', 'female': 'perempuan'}
     g_fakta = gender_map.get(gender, gender).lower()
 
-    # P: Mencari fakta yang cocok di CSV
+    # Cari data CSV
     match = df[(df['Jenis Kelamin'].str.lower() == g_fakta) & 
                (df['Umur (bulan)'] == umur) & 
                (df['Tinggi Badan (cm)'] == tinggi)]
@@ -49,7 +47,7 @@ def deteksi():
         if status_cek == "normal":
             saran = "Kondisi anak baik, pertahankan pola makan seimbang."
         elif status_cek == "stunted":
-            saran = "Anak terindikasi pendek. Tingkatkan asupan protein hewani."
+            saran = "Anak terindikasi pendek. Tingkatkan asupan gizi yang lebih baik."
         elif status_cek == "severely stunted":
             saran = "Anak sangat pendek. Segera konsultasikan ke dokter spesialis anak."
         elif status_cek == "tinggi":

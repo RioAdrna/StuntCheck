@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>StuntCheck</title>
-    <link rel="icon" type="image/png" href="assets/images/Logo StuntCheck.png">
+    <link rel="icon" type="image/png" href="assets/images/Logo1.png">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -19,6 +19,56 @@
     <link rel="stylesheet" href="assets/css/owl.css">
 
     <style>
+      #about {
+  padding-top: 70px;
+}
+
+#about .section-heading {
+  margin-bottom: 30px;
+}
+
+#about .box-item {
+  margin-top: -20px;
+}
+
+    #services {
+  padding-top: 70px;
+}
+
+#services .section-heading {
+  margin-bottom: 30px;
+}
+
+#services .box-item {
+  margin-top: -20px;
+}
+
+      .header-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.header-area {
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.header-area.scrolled {
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.header-area .nav a {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.header-area.scrolled .nav a {
+  color: #333;
+}
+
       .main-banner {
          padding-top: 130px !important;
       }
@@ -26,6 +76,12 @@
       .left-content {
          margin-top: 0 !important;
       }
+
+      .nav li a.active {
+  color: #4b8ef1;
+  font-weight: 600;
+}
+
     </style>
 </head>
 
@@ -42,8 +98,8 @@
               <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
               <li class="scroll-to-section"><a href="#services">Gejala</a></li>
               <li class="scroll-to-section"><a href="#about">Deteksi Dini</a></li>
-              <li class="scroll-to-section"><a href="#newsletter">Kontak</a></li>
-              <li><div class="gradient-button"><a href="#"><i class="fa fa-phone"></i> Darurat Medik</a></div></li> 
+              <!-- <li class="scroll-to-section"><a href="#newsletter">Kontak</a></li> -->
+              <li><div class="gradient-button"><a href="https://wa.me/628157001471"><i class="fa fa-phone"></i> &nbsp;Hubungi Kami</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -101,8 +157,8 @@
       <div class="row">
         <div class="col-lg-3">
           <div class="service-item first-service">
-            <h4>Pertumbuhan Terhambat</h4>
-            <p>Tinggi badan anak lebih pendek dari standar usianya secara signifikan.</p>
+            <h4>Mudah Sakit</h4>
+            <p>Sistem kekebalan tubuh yang lemah membuat anak rentan terkena infeksi dan menyebabkan sakit.</p>
           </div>
         </div>
         <div class="col-lg-3">
@@ -113,8 +169,8 @@
         </div>
         <div class="col-lg-3">
           <div class="service-item third-service">
-            <h4>Mudah Sakit</h4>
-            <p>Sistem kekebalan tubuh yang lemah membuat anak rentan terkena infeksi.</p>
+            <h4>Pertumbuhan Terhambat</h4>
+            <p>Tinggi badan anak lebih pendek dari standar usianya secara signifikan.</p>
           </div>
         </div>
         <div class="col-lg-3">
@@ -157,9 +213,11 @@
                         <input type="number" id="tinggi" class="form-control" placeholder="Contoh: 85" required>
                     </div>
                     <div class="col-lg-12">
-                        <div class="gradient-button mt-3">
-                            <a href="javascript:void(0)" onclick="prosesDeteksi()">Cek Hasil</a>
-                        </div>
+                       <div class="d-flex justify-content-center mt-3">
+                          <div class="gradient-button">
+                          <a href="javascript:void(0)" onclick="prosesDeteksi()">Cek Hasil</a>
+                          </div>
+                       </div>
                     </div>
                 </div>
             </form>
@@ -170,14 +228,15 @@
         </div>
       </div>
     </div>
-  </div>
+  </div >
 
   <footer id="newsletter">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="copyright-text">
-            <p>@Kelompok 4 StuntCheck 2026.
+            <p>
+              <b>@Kelompok 4 2026.</b>
           <br>Kesehatan Anak adalah Masa Depan Bangsa.</p>
           </div>
         </div>
@@ -190,27 +249,17 @@
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
-  <script src="assets/js/popup.js"></script>
-  
+  <script src="assets/js/popup.js"></script> 
   <script>
-    $(document).ready(function() {
-        $('.scroll-to-section a').on('click', function(e) {
-            e.preventDefault();
-            var target = $(this.hash);
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 80
-                }, 500);
-            }
-        });
-
-        $('.menu-trigger').on('click', function() {
-            $(this).toggleClass('active');
-            $('.header-area .nav').slideToggle(200);
-        });
-    });
-  </script>
-
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header-area');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
   <script>
  $(document).ready(function() {
     $('.scroll-to-section a').on('click', function(e) {
